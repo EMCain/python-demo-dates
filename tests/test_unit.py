@@ -1,10 +1,10 @@
 import datetime
 
 import pytest
+from freezegun import freeze_time
 
-from src.date_functions import first_sunday
+from src.date_functions import first_sunday, this_year_info
 
-# TODO parameterize, mock 
 
 @pytest.mark.parametrize(
     "year,month,expected",
@@ -20,8 +20,19 @@ def test_first_sunday_returns_the_first_sunday_of_the_month(year, month, expecte
     result = first_sunday(year, month)
     assert result == datetime.datetime.strptime(expected, "%Y-%m-%d").date()
 
-     
 
-# TODO parameterize, mock 
-def test_this_year_info_returns_first_sundays_for_whole_year():
-    pass
+@pytest.mark.parametrize(
+    "year,expected",
+    [
+        (2002, "2002-02-03"),
+        (2006, "2006-05-07"),
+        (2020, "2020-11-01"),
+        (2029, "2029-07-01"),
+        (2036, "2036-06-01"),
+    ]
+)
+def test_this_year_info_returns_first_sundays_for_whole_year(year, expected):
+    with freeze_time(lambda : datetime.date(year, 1, 1)):
+        info = this_year_info()
+        expected_date = datetime.datetime.strptime(expected, "%Y-%m-%d").date()
+        assert expected_date in info["first_sundays"]

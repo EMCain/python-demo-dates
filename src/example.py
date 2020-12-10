@@ -1,4 +1,4 @@
-from date_functions import DEFAULT_FORMAT, first_sunday, this_year_info
+from src.date_functions import DEFAULT_FORMAT, first_sunday, this_year_info
 
 
 def this_year_info_string():
@@ -12,7 +12,6 @@ The first Sundays for {info["year"]} are:
 {days_list}
 """
     return result
-
 
 
 if __name__ == "__main__":
