@@ -1,4 +1,4 @@
-import calendar 
+import calendar
 import datetime
 
 DEFAULT_FORMAT = "%A, %B %e, %Y"  # e.g. Monday, December 7, 2020

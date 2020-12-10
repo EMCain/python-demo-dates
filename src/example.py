@@ -1,5 +1,6 @@
 from date_functions import DEFAULT_FORMAT, first_sunday, this_year_info
 
+
 def this_year_info_string():
     info = this_year_info()
     days_list = '\n'.join([
