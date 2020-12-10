@@ -6,7 +6,7 @@ def this_year_info_string():
         d.strftime(DEFAULT_FORMAT)
         for d in info["first_sundays"]
         ])
-    result = f"""Today is {info["date"].strftime(DEFAULT_FORMAT)}
+    result = f"""Today is {info["today"].strftime(DEFAULT_FORMAT)}
 The first Sundays for {info["year"]} are: 
 {days_list}
 """
