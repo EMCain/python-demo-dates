@@ -30,6 +30,6 @@ Sunday, December  7, 2014
         class MyDate(datetime.date):
             @classmethod
             def today(cls, **kwargs):
-                return datetime.datetime(2014, 5, 20)
+                return datetime.datetime(2014, 5, 20).date()
 
         patched_date = mocker.patch("src.date_functions.datetime.date", MyDate)
