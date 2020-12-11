@@ -14,5 +14,3 @@ The first Sundays for {info["year"]} are:
     return result
 
 
-if __name__ == "__main__":
-    print(this_year_info_string())
